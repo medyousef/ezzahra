@@ -10,6 +10,28 @@
 * 	Template Style 
 *
 * ======================================================= */
+
+html {
+  scroll-behavior: smooth;
+  }
+
+.Phone-number {
+  color: white;
+}
+
+.Phone-number a {
+  text-decoration: none;
+}
+
+.Phone-number h2 {
+  display: flex;
+  align-items: center;
+  color: white;
+}
+
+.Phone-number i {
+  margin-right: 5px;
+}
 body {
   font-family: "Cormorant Garamond", Georgia, serif;
   font-weight: 400;
