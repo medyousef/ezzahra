@@ -316,12 +316,6 @@ h1, h2, h3, h4, h5, h6, figure {
   background: rgba(0, 0, 0, 0.5);
 }
 
-@media screen and (max-width: 768px) {
-  #fh5co-header,
-  .fh5co-cover {
-    padding: 3em 0;
-  }
-}
 #fh5co-header .display-t,
 .fh5co-cover .display-t {
   display: table;
@@ -338,12 +332,6 @@ h1, h2, h3, h4, h5, h6, figure {
   display: table-cell !important;
   vertical-align: middle;
   width: 100%;
-}
-@media screen and (max-width: 768px) {
-  #fh5co-header .display-tc,
-  .fh5co-cover .display-tc {
-    padding: 3em 0;
-  }
 }
 #fh5co-header .display-tc h1, #fh5co-header .display-tc h2,
 .fh5co-cover .display-tc h1,
@@ -466,11 +454,13 @@ h1, h2, h3, h4, h5, h6, figure {
   }
 }
 .fh5co-section p {
-  color: rgba(255, 255, 255, 0.3);
-  font-size: 18px;
+  color: rgb(255, 255, 255);
+  font-size: 20px;
   line-height: 1.5;
 }
-
+.fh5co-section h2 {
+  margin-bottom: 50px;
+}
 .section-heading {
   width: 100%;
   float: left;
@@ -492,7 +482,7 @@ h1, h2, h3, h4, h5, h6, figure {
 }
 
 #fh5co-featured-menu .fh5co-heading, #fh5co-gallery .fh5co-heading, #fh5co-reservation-form .fh5co-heading {
-  margin-bottom: 170px;
+  margin-bottom: 100px;
 }
 @media screen and (max-width: 768px) {
   #fh5co-featured-menu .fh5co-heading, #fh5co-gallery .fh5co-heading, #fh5co-reservation-form .fh5co-heading {
@@ -510,7 +500,6 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-featured-menu .fh5co-item, #fh5co-gallery .fh5co-item, #fh5co-reservation-form .fh5co-item {
   float: left;
   width: 100%;
-  backround: #fff;
 }
 #fh5co-featured-menu .fh5co-item.margin_top, #fh5co-gallery .fh5co-item.margin_top, #fh5co-reservation-form .fh5co-item.margin_top {
   margin-top: 150px;
@@ -530,6 +519,21 @@ h1, h2, h3, h4, h5, h6, figure {
   margin-bottom: 20px;
   font-size: 30px;
   display: block;
+}
+#fh5co-featured-menu .fh5co-item .fh5co-price {
+  font-style: normal; /* corrected from 20px */
+  color: #fee856;
+  margin-bottom: 5px; /* less space after the name */
+  font-size: 30px;
+  display: block;
+}
+
+/* New style for the weight */
+#fh5co-featured-menu .fh5co-item .fh5co-weight {
+  font-size: 20px; /* smaller than name */
+  margin-bottom: 15px; /* space before description */
+  display: block;
+  color: #fee856;
 }
 #fh5co-featured-menu .fh5co-item img, #fh5co-gallery .fh5co-item img, #fh5co-reservation-form .fh5co-item img {
   margin-bottom: 30px;
@@ -569,9 +573,6 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-featured-testimony {
   border: none !important;
 }
-#fh5co-featured-testimony .fh5co-heading {
-  margin-bottom: 170px;
-}
 @media screen and (max-width: 768px) {
   #fh5co-featured-testimony .fh5co-heading {
     margin-bottom: 50px;
@@ -581,8 +582,12 @@ h1, h2, h3, h4, h5, h6, figure {
   color: #fff;
   font-family: "Satisfy", cursive;
 }
-#fh5co-featured-testimony .img-to-responsive img {
+#fh5co-featured-testimony .img-to-responsive video {
+  display: block;
+  max-width: 100%;
+  height: auto;
   margin-bottom: 20px;
+  object-fit: cover;
 }
 @media screen and (max-width: 768px) {
   #fh5co-featured-testimony .img-to-responsive img {
@@ -592,7 +597,7 @@ h1, h2, h3, h4, h5, h6, figure {
 #fh5co-featured-testimony blockquote {
   border: none;
   position: relative;
-  margin-top: 100px;
+  margin-top: 0;
 }
 @media screen and (max-width: 992px) {
   #fh5co-featured-testimony blockquote {
@@ -1805,6 +1810,30 @@ textarea {
   color: #000 !important;
 }
 
+.video-text-container {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
 
+.video-text-container video {
+  max-width: 50%;
+}
+
+.video-text-container .quote {
+  max-width: 45%;
+}
+
+/* On mobile, stack video and text */
+@media (max-width: 768px) {
+  .video-text-container {
+    flex-direction: column;  /* stack vertically */
+  }
+
+  .video-text-container video,
+  .video-text-container .quote {
+    max-width: 100%;   /* take full width */
+  }
+}
 
 /*# sourceMappingURL=style.css.map */
