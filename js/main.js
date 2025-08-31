@@ -313,9 +313,21 @@
 
 	
 	$(function(){
-		mobileMenuOutsideClick();
-		offcanvasMenu();
-		burgerMenu();
+		// Simple mobile nav toggle
+		$('.nav-toggle').on('click', function(e){
+			e.preventDefault();
+			var $btn = $(this);
+			var $nav = $('.fh5co-nav');
+			var expanded = $btn.attr('aria-expanded') === 'true';
+			$btn.attr('aria-expanded', (!expanded).toString());
+			$nav.toggleClass('open');
+		});
+		$('.menu-1 a').on('click', function(){
+			$('.fh5co-nav').removeClass('open');
+			$('.nav-toggle').attr('aria-expanded','false');
+		});
+
+		// Disabled legacy offcanvas menu in favor of simple toggle
 		contentWayPoint();
 		sliderMain();
 		dropdown();
