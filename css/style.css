@@ -87,6 +87,11 @@ h6 { font-size: clamp(16px, 2.4vw, 18px); }
   font-size: clamp(36px, 10vw, 80px);
 }
 
+/* Consistent spacing below section headings */
+.fh5co-heading { margin-bottom: 50px; }
+.section-heading { margin-bottom: 50px; }
+.section-heading h2 { margin-bottom: 10px; }
+
 ::-webkit-selection {
   color: #fff;
   background: #ea272d;
@@ -610,14 +615,7 @@ h6 { font-size: clamp(16px, 2.4vw, 18px); }
 
 /* timeline styles removed */
 
-#fh5co-blog .fh5co-heading, #fh5co-contact .fh5co-heading {
-  margin-bottom: 170px;
-}
-@media screen and (max-width: 768px) {
-  #fh5co-blog .fh5co-heading, #fh5co-contact .fh5co-heading {
-    margin-bottom: 50px;
-  }
-}
+#fh5co-blog .fh5co-heading, #fh5co-contact .fh5co-heading { margin-bottom: 50px; }
 #fh5co-blog .fh5co-heading h2, #fh5co-contact .fh5co-heading h2 {
   font-family: "Satisfy", cursive;
   color: #fff;
@@ -669,6 +667,25 @@ h6 { font-size: clamp(16px, 2.4vw, 18px); }
 }
 #fh5co-footer .copyright .block {
   display: block;
+}
+
+/* Tighter footer spacing */
+#fh5co-footer.fh5co-section { padding-top: 3em; padding-bottom: 2em; }
+#fh5co-footer .row-pb-md { padding-bottom: 1.5em !important; }
+
+/* Mobile footer refinements */
+@media screen and (max-width: 768px) {
+  #fh5co-footer .fh5co-widget { text-align: center; }
+  #fh5co-footer .fh5co-footer-links li { margin-bottom: 8px; }
+  #fh5co-footer .fh5co-footer-links li a { display: inline-block; padding: 8px 0; }
+  /* Social links as touch-friendly pills */
+  .fh5co-social-icons { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+  .fh5co-social-icons li a {
+    padding: 10px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    color: #fff;
+  }
 }
 
 /* contact-info list styles removed */
@@ -867,4 +884,11 @@ textarea {
   /* add breathing room under fixed header */
   #fh5co-header { padding-top: 70px; }
 }
+
+/* Map block spacing to separate it from the form and other sections */
+#map-container { margin: 40px auto; }
+@media screen and (max-width: 768px) {
+  #map-container { margin: 24px auto; }
+}
+#map-container iframe { display: block; width: 100%; }
 /*# sourceMappingURL=style.css.map */
