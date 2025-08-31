@@ -869,7 +869,19 @@ textarea {
 
 /* loader removed (no .fh5co-loader element) */
 
-/* .js .animate-box not used (no .js on <html>) */
+/* Ensure elements are hidden until animated; improve paint stability */
+.js .animate-box {
+  opacity: 0;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+}
+/* Fallback for templates using animated-fast */
+.animated-fast {
+  -webkit-animation-duration: .6s;
+  animation-duration: .6s;
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
 
 @media screen and (max-width: 480px) {
   .col-xxs-12 {
@@ -894,6 +906,9 @@ textarea {
   .nav-toggle { display: block; }
   /* add breathing room under fixed header */
   #fh5co-header { padding-top: 70px; }
+
+  /* Ensure about section has comfortable side padding on phones */
+  #fh5co-about .container { padding-left: 15px; padding-right: 15px; }
 }
 
 /* Map block spacing to separate it from the form and other sections */

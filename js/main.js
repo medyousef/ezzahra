@@ -121,7 +121,7 @@
 		var i = 0;
 		$('.animate-box').waypoint( function( direction ) {
 
-			if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
+			if( direction === 'down' && !$(this.element).hasClass('animated') ) {
 				
 				i++;
 
@@ -133,13 +133,13 @@
 						setTimeout( function () {
 							var effect = el.data('animate-effect');
 							if ( effect === 'fadeIn') {
-								el.addClass('fadeIn animated-fast');
+								el.addClass('fadeIn animated animated-fast');
 							} else if ( effect === 'fadeInLeft') {
-								el.addClass('fadeInLeft animated-fast');
+								el.addClass('fadeInLeft animated animated-fast');
 							} else if ( effect === 'fadeInRight') {
-								el.addClass('fadeInRight animated-fast');
+								el.addClass('fadeInRight animated animated-fast');
 							} else {
-								el.addClass('fadeInUp animated-fast');
+								el.addClass('fadeInUp animated animated-fast');
 							}
 
 							el.removeClass('item-animate');
@@ -257,9 +257,8 @@
 	};
 
 	var parallax = function() {
-		if ( !isMobile.any() ) {
-			$(window).stellar();
-		}
+		// Disable parallax to avoid scroll jank/flicker on some devices
+		return;
 	};
 
 	var DateTimePickerFunc = function() {
