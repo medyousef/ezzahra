@@ -917,4 +917,14 @@ textarea {
   #map-container { margin: 24px auto; }
 }
 #map-container iframe { display: block; width: 100%; }
+
+/* Ensure anchors are not hidden behind fixed header */
+#fh5co-header,
+#fh5co-about,
+#fh5co-featured-menu,
+#fh5co-featured-testimony,
+#fh5co-blog,
+#fh5co-contact {
+  scroll-margin-top: 90px;
+}
 /*# sourceMappingURL=style.css.map */
