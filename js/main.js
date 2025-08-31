@@ -342,6 +342,40 @@
    		$(this).css('width', '100%');
    	});
 		// zoomFunc();
+
+		// Contact form submit via fetch (Formspree)
+		$('#contact-form').on('submit', function(e){
+			e.preventDefault();
+			var $form = $(this);
+			var $status = $form.find('.form-status');
+			var $btn = $form.find('button[type="submit"]');
+			var consentOk = $('#consent').is(':checked');
+			if (!consentOk) {
+				$status.addClass('error').text('Veuillez accepter l\'utilisation de vos données pour être recontacté.');
+				return;
+			}
+			$status.removeClass('success error').text('Envoi en cours…');
+			$btn.prop('disabled', true);
+			var endpoint = $form.attr('action');
+			var data = new FormData(this);
+			fetch(endpoint, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+				.then(function(resp){
+					if (resp.ok) {
+						$form[0].reset();
+						$status.addClass('success').text('Merci, votre message a été envoyé. Nous vous répondrons au plus vite.');
+					} else {
+						return resp.json().then(function(json){
+							throw new Error((json && json.errors && json.errors[0] && json.errors[0].message) || 'Une erreur est survenue.');
+						});
+					}
+				})
+				.catch(function(err){
+					$status.addClass('error').text(err.message || 'Impossible d\'envoyer le message. Veuillez réessayer.');
+				})
+				.finally(function(){
+					$btn.prop('disabled', false);
+				});
+		});
 	});
 
 

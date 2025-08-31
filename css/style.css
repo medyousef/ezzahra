@@ -418,6 +418,9 @@ h6 { font-size: clamp(16px, 2.4vw, 18px); }
 }
 
 #fh5co-about .img-wrap img {
+  width: 800px;      /* target width on desktop */
+  height: auto;      /* keep aspect ratio */
+  max-width: 100%;   /* don’t overflow on small screens */
   margin-bottom: 30px;
 }
 @media screen and (max-width: 992px) {
@@ -828,6 +831,14 @@ h6 { font-size: clamp(16px, 2.4vw, 18px); }
   text-transform: uppercase;
   letter-spacing: 1px;
 }
+
+/* Contact form helpers */
+.contact-blurb { color: rgba(255,255,255,0.85); margin-top: 10px; }
+.form-status { margin-top: 8px; font-size: 16px; }
+.form-status.success { color: #9be37a; }
+.form-status.error { color: #f18b8b; }
+
+.contact-right-blurb { margin-bottom: 15px; color: rgba(255,255,255,0.9); }
 
 .form-control {
   box-shadow: none;
